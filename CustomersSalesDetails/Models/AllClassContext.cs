@@ -13,5 +13,6 @@ namespace CustomersSalesDetails.Models
         public DbSet<CustomerDetails> customerDetails { get; set; }
         public DbSet<ItemsDetails> itemsDetails { get; set; }
         public DbSet<Invoice> invoices { get; set; }
+        public DbSet<InvoicTwo> invoicTwos { get; set; }
     }
 }

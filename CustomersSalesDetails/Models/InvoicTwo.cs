@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace CustomersSalesDetails.Models
 {
-    public class Invoice
+    public class InvoicTwo
     {
+
         [Key]
         [Column(TypeName = "int")]
         public int Invoice_Id { get; set; }
@@ -26,9 +27,8 @@ namespace CustomersSalesDetails.Models
         public int Quanty { get; set; }
 
         [Required]
-        [Column(TypeName = "int")]
+        [Column(TypeName ="int")]
         public int Price { get; set; }
-
 
     }
 }

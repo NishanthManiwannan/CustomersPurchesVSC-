@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CustomersSalesDetails.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,12 +31,29 @@ namespace CustomersSalesDetails.Migrations
                     Invoice_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Customer_Id = table.Column<int>(type: "int", nullable: false),
-                    Item_Id = table.Column<int>(type: "int", nullable: false),
-                    Quanty = table.Column<int>(type: "int", nullable: false)
+                    Item_Id = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Quanty = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_invoices", x => x.Invoice_Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "invoicTwos",
+                columns: table => new
+                {
+                    Invoice_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Customer_Id = table.Column<int>(type: "int", nullable: false),
+                    Item_Id = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Quanty = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_invoicTwos", x => x.Invoice_Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,6 +80,9 @@ namespace CustomersSalesDetails.Migrations
 
             migrationBuilder.DropTable(
                 name: "invoices");
+
+            migrationBuilder.DropTable(
+                name: "invoicTwos");
 
             migrationBuilder.DropTable(
                 name: "itemsDetails");

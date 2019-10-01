@@ -47,6 +47,32 @@ namespace CustomersSalesDetails.Migrations
                     b.ToTable("customerDetails");
                 });
 
+            modelBuilder.Entity("CustomersSalesDetails.Models.InvoicTwo", b =>
+                {
+                    b.Property<int>("Invoice_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Customer_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Item_Id")
+                        .IsRequired()
+                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quanty")
+                        .HasColumnType("int");
+
+                    b.HasKey("Invoice_Id");
+
+                    b.ToTable("invoicTwos");
+                });
+
             modelBuilder.Entity("CustomersSalesDetails.Models.Invoice", b =>
                 {
                     b.Property<int>("Invoice_Id")
@@ -57,7 +83,12 @@ namespace CustomersSalesDetails.Migrations
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Item_Id")
+                    b.Property<string>("Item_Id")
+                        .IsRequired()
+                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("Quanty")
