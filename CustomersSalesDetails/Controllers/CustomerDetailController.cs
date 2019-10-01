@@ -52,6 +52,7 @@ namespace CustomersSalesDetails.Controllers
 
             _context.Entry(customerDetails).State = EntityState.Modified;
 
+
             try
             {
                 await _context.SaveChangesAsync();
